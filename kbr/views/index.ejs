@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"style="overflow:hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabir Enterprises</title>
+<style>
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+#cont{
+    background-color: rgb(66, 66, 66);
+    display: flex;
+    flex-wrap: wrap;
+}
+.cont{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5vh;
+    min-width: 80px;
+    gap: 1px;
+}
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 18px;
+}
+#cont5{
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+#cont6{
+     background-color: rgb(255, 255, 255);
+    min-height: 80px;
+    padding-top: 8px;
+    padding-left: 5px;
+    border-radius: .6vh;
+    position: absolute;
+     display: none;
+}
+#cont6 a{
+    color: rgb(23, 23, 23);
+}
+#contx{
+    height: 100vh;
+    background-color:  #d4ffff;
+}
+h1{
+    height: 200px;
+    padding-top: 100px;
+    font-style: italic;
+    margin-bottom: 0%;
+     text-align: center;
+     font-size: clamp(20px,20vw,80px);
+     font-weight: 800;
+     background:radial-gradient(circle,rgb(78, 35, 185),black);
+    -webkit-background-clip:text;
+    color: transparent;
+}
+#cont1x{
+    height: clamp(100px,30vw,200px);
+    width: clamp(200px,60vw,400px);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+}
+.option{
+    background-color: #ffc583;
+    width: 47%;
+    height: 94%;
+    border-radius: 50%;
+    box-shadow: 5px 2px rgb(0, 0, 0);
+    transition: all .15s linear 0s;
+    font-style: italic;
+    font-size: clamp(10px,15vw,22px);
+}
+.option:active{
+    transform: scale(.8,.8);
+}
+#pro{
+    border-radius: 0% 40%;
+}
+#pro:active{
+    box-shadow: inset 5px -5px black;
+}
+#bill{
+    border-radius: 40% 0%;
+}
+#bill:active{
+    box-shadow: inset 5px -5px black;
+}
+</style>
+</head>
+<body>
+    <div id="cont">
+    <div id="cont1"class="cont"style="background-color:white;">
+        <a href="/"style="color:rgb(66, 66, 66);">Home</a>
+    </div>
+    <div id="cont2"class="cont">
+        <a href="/pro">Products</a>
+    </div>
+    <div id="cont3"class="cont">
+        <a href="/newPro">New Product</a>
+    </div>
+    <div id="cont4"class="cont">
+        <a href="/bill">Bill</a>
+    </div>
+    <div id="cont5"class="cont">Dropdown▼
+    </div>
+    <div id="cont6">
+        <a href="/seeBills">see Bills</a><br>
+        <a href="/changeSC">change secretCode</a><br>
+        <hr style="margin-top: 10px;">
+    </div>
+  </div>
+    <div id="contx">
+        <h1>My Shop</h1>
+        <div id="cont1x">
+            <button class="option" id="pro">Products</button>
+            <button class="option" id="bill">Make Bill</button>
+        </div>
+    </div> 
+<script>
+let cont5=document.querySelector("#cont5");
+let cont6=document.querySelector("#cont6");
+let cont5Rect=cont5.getBoundingClientRect();
+cont6.style.top=cont5Rect.bottom+"px";
+cont6.style.left=cont5Rect.left+"px";
+window.addEventListener("resize",()=>{
+let cont5Rect2=cont5.getBoundingClientRect();
+    cont6.style.top=cont5Rect2.bottom+"px";
+    cont6.style.left=cont5Rect2.left+"px";
+});
+let toggle=0;
+cont5.addEventListener("click",()=>{
+    if(toggle==0)
+{
+    cont6.style.display="block"
+    toggle=1;
+}
+   else
+   {
+    cont6.style.display="none"
+    toggle=0;
+   }
+});
+let pro=document.querySelector("#pro");
+let bill=document.querySelector("#bill");
+pro.addEventListener("click",()=>{
+    setTimeout(()=>{
+    window.location.href="/pro";
+},150) 
+});
+bill.addEventListener("click",()=>{
+    setTimeout(()=>{
+    window.location.href="/bill";
+},150)
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

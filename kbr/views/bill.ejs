@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en"style="background-color: rgb(206, 255, 255);">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Bill</title>
+<style>
+*{
+  margin: 0%;
+}
+#cont{
+    background-color: rgb(66, 66, 66);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0%;
+    @media print{
+    display: none;
+  }
+}
+.cont{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5vh;
+    min-width: 80px;
+    gap: 1px;
+}
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 18px;
+}
+#cont5{
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    
+}
+#cont6{
+     background-color: rgb(255, 255, 255);
+    min-height: 80px;
+    padding-top: 8px;
+    padding-left: 5px;
+    border-radius: .6vh;
+    position: absolute;
+     display: none;
+}
+#cont6 a{
+    color: rgb(23, 23, 23);
+}
+#print{
+  border-radius: .8vw;
+  height: 22px;
+  position: absolute;
+  @media print{
+    display: none;
+  }
+}
+#contx{
+    border: 8px double rgb(0, 0, 0);
+    max-width: 420px;
+    background-color: #e1f3f8;
+    border-radius:3vw;
+    margin-top: 22px;
+}
+#xxxx{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    background-color: rgb(171, 230, 230)! important;
+    border-radius:.7vh 1vh 0vh 0vh ! important;
+    margin-top:0px ! important;
+    margin-bottom: 0px ! important;
+    margin-left: 2px ! important;
+    height: 8vh ! important;
+    font-style: italic ! important;
+    font-size: clamp(10px,11vw,55px)! important;
+}
+h3{
+    margin-top: 2px;
+    margin-left: 2px;
+    font-size: clamp(15px,4vw,25px);
+}
+ul{
+    padding-left: 22px;
+}
+.x{
+    font-size:  clamp(15px,3vw,25px);
+}
+#name{
+    background-color: rgb(255, 255, 255);
+     height: clamp(12px,3.9vw,22px);
+     width: clamp(120px,18ch,220px);
+    font-size: clamp(5px,3.5vw,22px);
+    border-radius: .5vh;
+    padding-left: 5px;
+}
+#mob{
+    background-color: rgb(255, 255, 255);
+     height: clamp(12px,3.9vw,22px);
+     width:  clamp(120px,18ch,220px);
+    font-size: clamp(12px,3.5vw,25px);
+    margin-top: 1px;
+    border-radius: .5vh;
+    padding-left: 5px;
+}
+#cont1x{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1.5%;
+    border-bottom: 1px solid rgb(158, 150, 150);
+}
+#additem{
+    background-color: rgb(129, 124, 153);
+    display: inline-block;
+    color: white;
+    height: 3ch;
+    width: 4ch;
+    @media print{
+        display: none;
+    }
+}
+#gross,#given,#left{
+    background-color: rgb(165, 211, 244);
+     margin-top:0px;
+    margin-bottom:0px;
+    margin-left: 2px;
+    height:clamp(15px,6vw,35px);
+    font-size:clamp(15px,4.5vw,30px);
+    display: flex;
+    justify-content:space-between;
+}
+#gross,#given{
+     height:clamp(15px,5vw,35px);
+    font-size:clamp(15px,3.8vw,30px);
+}
+#s1,#s2,#s3{
+    background-color:rgb(165,211,244);
+    border:3px solid rgb(0, 0, 0);
+    border-radius:21% 0% 21%  0%;
+    font-size:clamp(15px,4vw,30px);
+    @media print{
+        border: none;
+    }
+}
+#hr{
+    margin:0px;
+}
+#s2{
+    display:inline-block;
+    width:5ch;
+    font-size:clamp(15px,4vw,30px);
+}
+#s1,#s2{
+    border:1px solid black;
+}
+#t1{
+    font-size:clamp(10px,4vw,20px);
+    width: 37%;
+}
+#t2{
+    font-size:clamp(10px,4vw,20px);
+    width: 21%;
+}
+#t3{
+    font-size:clamp(10px,4vw,20px);
+    width: 21%;
+}
+#t4{
+    font-size:clamp(10px,4vw,20px);
+    width: 20%;
+}
+.name{
+    width:95%;
+    text-align: center;
+    margin-right:1px;
+    height: clamp(12px,4vw,20px);
+    font-size: clamp(8px,3.5vw,15px);
+}
+.quantity{
+    width:75%;
+    text-align: center;
+    margin-left: 1px;
+    margin-right: 1px;
+    height: clamp(12px,4vw,20px);
+    font-size: clamp(12px,3vw,18px);
+}
+.price{
+    width:80%;
+    text-align: center;
+    margin-left: 1px;
+    height: clamp(12px,4vw,20px);
+    font-size: clamp(12px,3vw,18px);
+}
+.total{
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: white;
+    height:clamp(12px,4vw,20px);
+    font-size: clamp(12px,3.5vw,18px);
+}
+p{
+    font-size: clamp(3px,3.2vw,20px);
+    margin-bottom: 0%;
+}
+</style>
+</head>
+<body>
+   <div id="cont">
+    <div id="cont1"class="cont">
+        <a href="/">Home</a>
+    </div>
+    <div id="cont2"class="cont">
+        <a href="/pro">Products</a>
+    </div>
+    <div id="cont3"class="cont">
+        <a href="/newPro">New Product</a>
+    </div>
+    <div id="cont4"class="cont"style="background-color:white;">
+        <a href="/bill"style="color:rgb(66, 66, 66);">Bill</a>
+    </div>
+    <div id="cont5"class="cont">Dropdown▼
+    </div>
+    <div id="cont6">
+        <a href="/seeBills">see Bills</a><br>
+        <a href="/changeSC">change secretCode</a><br>
+        <hr style="margin-top: 10px;">
+    </div>
+  </div>
+  <div id="xxxx">
+    <button id="print">*print*</button>
+    <div id="contx">
+      <h1>kabir enterprises</h1>
+      <h3 style="margin-bottom: 5px;">Joshilamti,RJN,C.G.</h3>
+      &nbsp<%= new Date().getDate() %>-<%= new Date().getMonth()+1 %>-<%= new Date().getFullYear() %>
+      <hr>
+      <hr>
+      <h3> customer's details</h3>
+      <ul>
+        <li class="x">Name &nbsp &nbsp : <input id="name"type="text"></li>
+        <li class="x">Mob No : <input id="mob"type="text"></li>
+      </ul>
+      <hr>
+      <hr>
+      <table>
+        <thead>
+         <tr>
+            <th id="t1">ProductName</th>
+            <th id="t3">Price</th>
+            <th id="t2">Quantity</th>
+            
+            <th id="t4">TotalPrice</th>
+         </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+      </table>
+      <div id="cont1x"><button id="additem">+</button></div>
+      <div id="gross">Total amount :
+        <span id="s1">0000</span>
+      </div>
+      <div id="given">Given amount :
+        <input id="s2" type="text">
+      </div>
+         <hr id="hr">
+      <div id="left">Left amount   :
+        <span id="s3">0000</span>
+      </div>
+      <br>
+      <p>Owner's Name : Mr Rikesh Sahu<br>&nbspMob.Number : 9340100519
+      </p>
+      <datalist id="dl"></datalist>
+     </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+let cont5=document.querySelector("#cont5");
+let cont6=document.querySelector("#cont6");
+let cont5Rect=cont5.getBoundingClientRect();
+cont6.style.top=cont5Rect.bottom+"px";
+cont6.style.left=cont5Rect.left+"px";
+window.addEventListener("resize",()=>{
+let cont5Rect2=cont5.getBoundingClientRect();
+    cont6.style.top=cont5Rect2.bottom+"px";
+    cont6.style.left=cont5Rect2.left+"px";
+});
+let toggle=0;
+cont5.addEventListener("click",()=>{
+    if(toggle==0)
+{
+    cont6.style.display="block"
+    toggle=1;
+}
+   else
+   {
+    cont6.style.display="none"
+    toggle=0;
+   }
+});
+let print=document.querySelector("#print");
+let mob=document.querySelector("#mob");
+let btn=document.querySelector("#additem");
+let tbody=document.querySelector("#tbody");
+let gamnt=document.querySelector("#s1");
+let allPro=JSON.parse(`<%- JSON.stringify(allPro)%>`);
+let dl=document.querySelector("#dl");
+let s2=document.querySelector("#s2");
+let s3=document.querySelector("#s3");
+let log=[];
+let contx=document.querySelector("#contx");
+let contxRect=contx.getBoundingClientRect();
+ print.style.right=((window.innerWidth-contxRect.width)/2)+6+"px";
+ window.addEventListener("resize",()=>{
+ print.style.right=((window.innerWidth-contxRect.width)/2)+4+"px";
+ });
+ btn.addEventListener("click",()=>{
+    let row=document.createElement("tr");
+    row.innerHTML=`
+    <td><input type="text"class="name"list="dl"></td>
+    
+    <td><input type="number"class="price" min=0></td>
+    <td><input type="number"class="quantity" value=1 min=1></td>
+    <td class="total">00</td>`;
+    tbody.append(row);
+    row.addEventListener("input",()=>{
+     let qnt=Number(row.querySelector(".quantity").value);
+     let prc=Number(row.querySelector(".price").value);
+     let ttl=row.querySelector(".total");
+     let sum=qnt*prc;
+     ttl.innerText=sum;
+     calc(); 
+    });
+    print.addEventListener("click",()=>{
+    let inpName=row.querySelectorAll(".name");
+    let inpQun=row.querySelectorAll(".quantity");
+    inpName.forEach((i,j)=>{
+        log.push([i.value,Number(inpQun[j].value)]);
+       });
+    let form=document.createElement("form");
+            form.method="post";
+            form.action="/submit2";
+            form.style.display="none";
+        form.innerHTML=`<input type="text"name="mob"value=${mob.value}>
+            ${log.map((i)=>{
+            return `<input type="text"name="productName[]"value=${i[0]}>
+            <input type="number"name="quantity[]"value=${i[1]}>`
+        }).join("")
+        }`;
+        document.body.append(form);
+        form.submit();
+    });
+});
+function calc(){
+    let x=document.querySelectorAll("#tbody tr");
+    let y=0;
+    x.forEach((i)=>{
+          let z=Number(i.querySelector(".total").innerText)||0;
+          y+=z;
+    });
+    gamnt.innerText=y;
+    return y;
+}
+s2.addEventListener("input",()=>{
+      let w=gamnt.getBoundingClientRect().width;
+      s2.style.width=w+"px";
+      let gvn=Number(s2.value);
+      let lft=calc()-gvn;
+      s3.innerText=lft;
+});
+print.addEventListener("click",async()=>{
+    let w=gamnt.getBoundingClientRect().width;
+    s2.style.width=w+"px";
+    window.print();
+    const canvas = await html2canvas(document.querySelector("#contx"));
+    const image = canvas.toDataURL("image/png");
+    await fetch("/saveImage", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ image }),
+  });
+});
+let dlih=`${allPro.map((i)=>{
+    return `<option>${i.productName}</option>`
+})}`;
+    dl.innerHTML=dlih;
+</script>
+</body>
+</html>

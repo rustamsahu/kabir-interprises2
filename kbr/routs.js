@@ -1,0 +1,15 @@
+const express=require("express");
+const router=express.Router();
+const {home,pro,newPro,submit1,bill,submit2,checkAuth,check,upload,changeSC,submitChangeSC,saveImage,seeBills}=require("./handlers");
+router.get("/",home);
+router.get("/pro",checkAuth,pro);
+router.get("/newPro",checkAuth,newPro);
+router.post("/submit1",upload.single("pic"),submit1);
+router.get("/bill",checkAuth,bill);
+router.post("/submit2",submit2);
+router.post("/check",check);
+router.get("/changeSC",checkAuth,changeSC);
+router.post("/submitChangeSC",submitChangeSC);
+router.post("/saveImage",saveImage);
+router.get("/seeBills",checkAuth,seeBills);
+module.exports=router;

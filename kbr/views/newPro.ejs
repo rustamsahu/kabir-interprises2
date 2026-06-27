@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"style="background-color:  #d4ffff;overflow:hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Product</title>
+<style>
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+#cont{
+    background-color: rgb(66, 66, 66);
+    display: flex;
+    flex-wrap: wrap;
+}
+.cont{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5vh;
+    min-width: 80px;
+    gap: 1px;
+}
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 18px;
+}
+#cont5{
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    
+}
+#cont6{
+     background-color: rgb(255, 255, 255);
+    min-height: 80px;
+    padding-top: 8px;
+    padding-left: 5px;
+    border-radius: .6vh;
+    position: absolute;
+     display: none;
+}
+#cont6 a{
+    color: rgb(23, 23, 23);
+}
+#contx{
+    background-color:#cdfffe;
+    height: 100vh;
+    /* box-shadow: inset 15px 15px 15px rgb(240, 149, 165); */
+    max-width: 600px;
+    margin: auto;
+}
+h2{
+     text-align: center;
+     margin-top: 50px;
+}
+#cont1x{
+    background-color: rgb(99, 144, 156);
+    border-radius: 5%;
+    width: clamp(200px,65vw,300px);
+    height: clamp(100px,55vw,250px);
+    margin: auto;
+    display: flex;
+}
+form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;justify-content: space-around;
+    width: 95%;
+    height: 100%;
+}
+form input{
+    height: 15%;
+    border-radius: 1.5vh;border: none;
+    padding-left: 2px;
+    font-style: italic;
+    font-weight: 1000;
+}
+form button{
+    height: 15%;
+    border-radius: 1.3vh;border: none;
+}
+</style>
+</head>
+<body>
+    <div id="cont">
+    <div id="cont1"class="cont">
+        <a href="/">Home</a>
+    </div>
+    <div id="cont2"class="cont">
+        <a href="/pro">Products</a>
+    </div>
+    <div id="cont3"class="cont"style="background-color:white;">
+        <a href="/newPro"style="color:rgb(66, 66, 66);">New Product</a>
+    </div>
+    <div id="cont4"class="cont">
+        <a href="/bill">Bill</a>
+    </div>
+    <div id="cont5"class="cont">Dropdown▼
+    </div>
+    <div id="cont6">
+        <a href="/seeBills">see Bills</a><br>
+        <a href="/changeSC">change secretCode</a><br>
+        <hr style="margin-top: 10px;">
+    </div>
+  </div>
+    <div id="contx">
+
+        <h2><i>Fill the product details</i></h2>
+        <div id="cont1x">
+            <form method="post"action="/submit1"enctype="multipart/form-data">
+                <input type="text"name="productName"placeholder="Product Name">
+                <input type="number"name="price"min="0"placeholder="Price">
+                <input type="number"name="quantity"min="0"placeholder="Quantity">
+                <input type="file"name="pic"style="background-color:white;padding:2%">
+                <button>Add</button>
+            </form>
+        </div>
+    </div>
+<script>
+let cont5=document.querySelector("#cont5");
+let cont6=document.querySelector("#cont6");
+let cont5Rect=cont5.getBoundingClientRect();
+cont6.style.top=cont5Rect.bottom+"px";
+cont6.style.left=cont5Rect.left+"px";
+window.addEventListener("resize",()=>{
+let cont5Rect2=cont5.getBoundingClientRect();
+    cont6.style.top=cont5Rect2.bottom+"px";
+    cont6.style.left=cont5Rect2.left+"px";
+});
+let toggle=0;
+cont5.addEventListener("click",()=>{
+    if(toggle==0)
+{
+    cont6.style.display="block"
+    toggle=1;
+}
+   else
+   {
+    cont6.style.display="none"
+    toggle=0;
+   }
+   console.log(toggle,cont6.style);
+});
+</script>
+</body>
+</html>

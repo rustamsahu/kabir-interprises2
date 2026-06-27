@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en"style="background-color:  #d4ffff;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Products</title>
+<style>
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+#cont{
+    background-color: rgb(66, 66, 66);
+    display: flex;
+    flex-wrap: wrap;
+}
+.cont{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5vh;
+    min-width: 80px;
+    gap: 1px;
+}
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 18px;
+}
+#cont5{
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    
+}
+#cont6{
+     background-color: rgb(255, 255, 255);
+    min-height: 80px;
+    padding-top: 8px;
+    padding-left: 5px;
+    border-radius: .6vh;
+    position: absolute;
+     display: none;
+     z-index: 1;
+}
+#cont6 a{
+    color: rgb(23, 23, 23);
+}
+h1{
+    font-weight: 1500;
+    color: rgb(3, 93, 79);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#contx{
+    background-color: #dbfffe;
+    min-height: 100vh;
+    max-width: 500px;
+    padding: 5px;
+    margin: auto;
+    position: relative;
+}
+#cont1x{
+    margin-bottom: 20px;
+}
+#cont2x{
+    background-color: rgb(198, 203, 208);
+    width: 70%;
+    margin: auto;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2vh 2vh 0vh 0vh;
+    margin-top: 20px;
+}
+#serch{
+    border: none;
+    width: 80%;
+    height: 78%;
+    border-radius: 4vh;
+    padding-left: 8px;
+}
+#display{
+     width: 70%;
+     height: 200px;
+     overflow: scroll;
+     background-color: rgb(222, 227, 232);
+     margin: auto;
+     display: none; 
+     transition: all 1s linear 0s;
+     border-radius: 0vh 0vh 2vh 2vh;
+} 
+#sno{
+    width: 8vw;
+    text-align: left;
+
+}
+#name{
+    width: 32vw;
+    text-align: left;
+    word-break: break-all;
+}
+#price{
+    width: 16vw;
+    text-align: left;
+}
+#qun{
+    width: 18vw;
+    text-align: left;
+}
+#pic{
+    width: 22vw;
+    text-align: center;
+}
+tbody tr td{
+    vertical-align:top;
+}
+</style>
+</head>
+<body>
+    <div id="cont">
+    <div id="cont1"class="cont">
+        <a href="/">Home</a>
+    </div>
+    <div id="cont2"class="cont"style="background-color:white;">
+        <a href="/pro"style="color:rgb(66, 66, 66);">Products</a>
+    </div>
+    <div id="cont3"class="cont">
+        <a href="/newPro">New Product</a>
+    </div>
+    <div id="cont4"class="cont">
+        <a href="/bill">Bill</a>
+    </div>
+    <div id="cont5"class="cont">Dropdown▼
+    </div>
+    <div id="cont6">
+        <a href="/seeBills">see Bills</a><br>
+        <a href="/changeSC">change secretCode</a><br>
+        <hr style="margin-top: 10px;">
+    </div>
+  </div>
+    <div id="contx">
+        <div id="cont1x">
+            <div id="cont2x"><input id="serch"type="string"placeholder="serch😊">
+            </div>
+            <div id="display"></div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th id="sno">No.</th>
+                    <th id="name">productName</th>
+                    <th id="price">price</th>
+                    <th id="qun">quantity</th>
+                    <th id="pic">pic</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <% allPro.forEach((i,j)=> {%>
+                    <tr style="height: 105px;">
+                        <td><%= j+1 %>.</td>
+                        <td><%= i.productName %></td>
+                        <td><%= i.price %></td>
+                        <td><%= i.quantity %></td>
+                        <td><img width="100px"style="border-radius:5%"src="<%= i.pic %>"></td>
+                   </tr>
+                    <%                       
+                    });
+                    %>
+            </tbody>
+        </table>
+    <hr><hr><h2><i>Total collection is =&nbsp</i></h2><hr><hr><hr><hr><hr><hr>
+    <hr>
+    </div>
+<script>
+let cont5=document.querySelector("#cont5");
+let cont6=document.querySelector("#cont6");
+let cont5Rect=cont5.getBoundingClientRect();
+cont6.style.top=cont5Rect.bottom+"px";
+cont6.style.left=cont5Rect.left+"px";
+window.addEventListener("resize",()=>{
+let cont5Rect2=cont5.getBoundingClientRect();
+    cont6.style.top=cont5Rect2.bottom+"px";
+    cont6.style.left=cont5Rect2.left+"px";
+});
+let toggle=0;
+cont5.addEventListener("click",()=>{
+    if(toggle==0)
+{
+    cont6.style.display="block"
+    toggle=1;
+}
+   else
+   {
+    cont6.style.display="none"
+    toggle=0;
+   }
+});
+let serch=document.querySelector("#serch");
+let display=document.querySelector("#display");
+let h2=document.querySelector("h2 i");
+let allPro=JSON.parse(`<%- JSON.stringify(allPro)%>`);
+serch.addEventListener("keyup",()=>{
+    display.style.display="block";
+    let aim=serch.value;
+    let newallPro=allPro.filter((i)=>{
+        return i.productName.includes(aim);
+    });
+     if(aim!="" && newallPro.length==0)
+     {
+        display.innerHTML="<h3>Not Found</h3>";
+     }
+     else if(aim=="" && allPro.length==newallPro.length)
+     {
+         display.innerHTML="<h3>Inter product Name</h3>";
+     }
+     else
+     {
+        display.innerHTML=`
+                 ${newallPro.map((i)=>{
+               return `<h3>&nbsp⁎&nbsp${i.productName}&nbsp-&nbsp${i.price}&nbsp-&nbsp${i.quantity}</h3>`;
+               })}        
+        `;
+     }
+});
+window.addEventListener("scroll",()=>{
+    display.style.display="";
+    serch.value="";
+});
+let ttl=0;
+for(i of allPro){
+   ttl+=i.price*i.quantity;
+};
+h2.innerText=h2.innerText+ttl+"   Rs";
+</script>
+</body>
+</html>
