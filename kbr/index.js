@@ -27,6 +27,6 @@ check();
 // const router=require("./routs");
 // app.use("/",router);
 app.get("/",(req,res)=>{
-    res.json("success");
+    res.sendFile(path.join(__dirname,"index.html"));
 });
 app.listen(process.env.PORT);
