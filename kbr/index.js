@@ -24,6 +24,9 @@ async function check() {
     }
 };
 check();
-const router=require("./routs");
-app.use("/",router);
+// const router=require("./routs");
+// app.use("/",router);
+app.get("/",(req,res)=>{
+    res.json("success");
+});
 app.listen(process.env.PORT);
