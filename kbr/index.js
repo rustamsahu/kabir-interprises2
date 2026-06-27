@@ -26,5 +26,4 @@ async function check() {
 check();
 const router=require("./routs");
 app.use("/",router);
-app.listen(5001,()=>{console.log("Add New Product");
-});
+app.listen(process.env.PORT);
